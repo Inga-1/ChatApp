@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
   //properties initialized first, then constr, then functions (c# i nman)
-  title = 'Dating app';
+  title = 'Chatting app';
   users: any;
 
   //dependency injection
