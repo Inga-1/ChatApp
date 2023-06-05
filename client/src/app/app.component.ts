@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from './_services/account.service';
+import { User } from './_models/user';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +10,21 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit{
   //properties initialized first, then constr, then functions (c# i nman)
   title = 'Chatting app';
-  users: any;
+
 
   //dependency injection
-  constructor (private http: HttpClient) {}
+  constructor (private accountService: AccountService) {}
 
 
   ngOnInit(): void {
-    this.http.get('https://localhost:5001/api/users').subscribe({
-      next: response => this.users = response, //assigning the response we get from the http request to the users 
-      error: error => console.log(error), 
-      complete: () => console.log('Request has completed') 
-    })
+    this.setCurrentuser();
+  }
+
+
+  setCurrentuser (){
+    const userString = localStorage.getItem('user');
+    if(!userString) return;
+    const user: User = JSON.parse(userString);
+    this.accountService.setCurrentUser(user);
   }
 }
