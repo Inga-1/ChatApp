@@ -1,4 +1,6 @@
-﻿namespace API.Entities
+﻿using Microsoft.AspNetCore.SignalR;
+
+namespace API.Entities
 {
     public class AppUser
     {
@@ -6,6 +8,7 @@
         public string UserName { get; set; }
         public byte[] PasswordHash { get; set;}
         public byte[] PasswordSalt { get; set;}
-
+        public List<Message> MessageSent {get; set;}
+        public List<Message> MessageReceived { get; set; }
     }
 }

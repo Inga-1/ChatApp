@@ -3,6 +3,7 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,32 +11,34 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230628122503_MessageEntityAdded")]
+    partial class MessageEntityAdded
     {
-        protected override void BuildModel(ModelBuilder builder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder builder)
         {
 #pragma warning disable 612, 618
             builder.HasAnnotation("ProductVersion", "7.0.5");
 
-            builder.Entity("API.Entities.AppUser", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+            // builder.Entity("API.Entities.AppUser", b =>
+            //     {
+            //         b.Property<int>("Id")
+            //             .ValueGeneratedOnAdd()
+            //             .HasColumnType("INTEGER");
 
-                    b.Property<byte[]>("PasswordHash")
-                        .HasColumnType("BLOB");
+            //         b.Property<byte[]>("PasswordHash")
+            //             .HasColumnType("BLOB");
 
-                    b.Property<byte[]>("PasswordSalt")
-                        .HasColumnType("BLOB");
+            //         b.Property<byte[]>("PasswordSalt")
+            //             .HasColumnType("BLOB");
 
-                    b.Property<string>("UserName")
-                        .HasColumnType("TEXT");
+            //         b.Property<string>("UserName")
+            //             .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+            //         b.HasKey("Id");
 
-                    b.ToTable("Users");
-                });
+            //         b.ToTable("Users");
+            //     });
 
             builder.Entity("API.Entities.Message", b =>
                 {
