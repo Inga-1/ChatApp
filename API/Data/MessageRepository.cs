@@ -1,5 +1,6 @@
 using API.DTOs;
 using API.Entities;
+using API.Helpers;
 using API.Interfaces;
 
 namespace API.Data
@@ -26,6 +27,11 @@ namespace API.Data
         public async Task<Message> GetMessage(int id)
         {
             return await _context.Messages.FindAsync(id);
+        }
+
+        public Task<PagedList<MessageDto>> GetMessagesForUser()
+        {
+            throw new NotImplementedException();
         }
 
         public Task<IEnumerable<MessageDto>> GetMessageThread(int currentUserId, int recipientId)

@@ -1,5 +1,6 @@
 using API.DTOs;
 using API.Entities;
+using API.Extensions;
 using API.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +24,7 @@ namespace API.Controllers
 
         public async Task<ActionResult<MessageDto>> CreateMessage(CreateMessageDto createMessageDto)
         {
-            var username = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            var username = User.GetUsername();
             if (username == createMessageDto.RecipientUsername.ToLower())
                 return BadRequest("You cannot send messages to yourself");
             
@@ -47,7 +48,6 @@ namespace API.Controllers
 
             return BadRequest("Failed to send message");
             
-
         }
     }   
 }

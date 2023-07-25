@@ -15,11 +15,13 @@ namespace API.Data
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Message>().HasOne(u => u.Recipient)
+            builder.Entity<Message>()
+                .HasOne(u => u.Recipient)
                 .WithMany(m => m.MessageReceived)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Entity<Message>().HasOne(u => u.Sender)
+            builder.Entity<Message>()
+                .HasOne(u => u.Sender)
                 .WithMany(m => m.MessageSent)
                 .OnDelete(DeleteBehavior.Restrict);
         }
