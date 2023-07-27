@@ -10,11 +10,11 @@ import { MembersService } from 'src/app/_services/members.service';
   styleUrls: ['./member-list.component.css']
 })
 export class MemberListComponent implements OnInit {
-  // members$: Observable<Member[]> | undefined;
+
   members: Member[] = [];
   pagination: Pagination | undefined;
   pageNumber = 1;
-  pageSize = 5;
+  pageSize = 3;
 
 
   constructor(private memberService: MembersService) { }
@@ -32,6 +32,13 @@ export class MemberListComponent implements OnInit {
         }
       } 
     })
+  }
+
+  pageChanged(event: any){
+    if (this.pageNumber !== event.page){
+      this.pageNumber == event.page; 
+      this.loadMembers();
+    }
   }
 
 }
