@@ -23,6 +23,10 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { JwtInterceptor } from './_interceptor/jwt.interceptor';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+// import { TabsModule } from 'ngx-bootstrap/tabs';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     TestErrorComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    MemberCardComponent
+    MemberCardComponent,
+    MemberEditComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -45,7 +50,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     AppRoutingModule, 
     HttpClientModule, 
     FormsModule, 
-    SharedModule, PaginationModule.forRoot()
+    SharedModule, PaginationModule.forRoot(), BsDropdownModule.forRoot(), ButtonsModule.forRoot(),
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}, 

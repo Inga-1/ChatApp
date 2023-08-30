@@ -43,7 +43,9 @@ namespace API.Controllers
             return new UserDTO
             {
                 Username = user.UserName, 
-                Token = _tokenService.CreateToken(user)
+                Token = _tokenService.CreateToken(user), 
+                KnownAs = user.KnownAs,
+                Gender = user.Gender
             };
         }
 
@@ -68,7 +70,9 @@ namespace API.Controllers
             return new UserDTO
             {
                 Username = user.UserName, 
-                Token = _tokenService.CreateToken(user)
+                Token = _tokenService.CreateToken(user), 
+                KnownAs = user.KnownAs,
+                Gender = user.Gender
             };
         }
 

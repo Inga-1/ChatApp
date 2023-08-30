@@ -13,10 +13,6 @@
             <li class="nav-item">
               <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
             </li>
-            <li class="nav-item" (click)="logout()">
-              <a class="nav-link">Logout</a>
-            </li>
-
           </ng-container>
           <li class="nav-item">
             <a class="nav-link" routerLink="/errors" routerLinkActive="active">Errors</a>
@@ -24,13 +20,20 @@
 
         </ul>
 
-        <!-- <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
-            <a class="dropdown-toggle text-light" dropdownToggle>Welcome User</a>
-            <div id="dropdown-animated" class="dropdown-menu" *dropdownMenu>
-                <a class="dropdown-item">Edit Profile</a>
-                <a class="dropdown-item" (click)="logout()">Logout</a>
-            </div>
-        </div> -->
+        <div class="btn-group" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
+          <button id="button-animated" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                  aria-controls="dropdown-animated">
+            Welcome {{user.username | titlecase}} <span class="caret"></span>
+          </button>
+          <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
+              role="menu" aria-labelledby="button-animated">
+              <li role="menuitem"><a class="dropdown-item" href="/members">Friends</a></li>
+              <li role="menuitem"><a class="dropdown-item" href="/messages">Messages</a></li>
+              <li role="menuitem"><a class="dropdown-item" routerLink="/member/edit">Edit Profile</a></li>
+              <li role="menuitem"><a class="dropdown-item" (click)="logout()">Logout</a></li>
+              
+          </ul>
+        </div>
 
         <form *ngIf="!(accountService.currentUser$ | async)" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
           <input 
