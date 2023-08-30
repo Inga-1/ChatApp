@@ -4,6 +4,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
+
 @NgModule({
   declarations: [],
   imports: [

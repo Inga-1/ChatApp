@@ -26,6 +26,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { TimeagoModule } from "ngx-timeago";
 // import { TabsModule } from 'ngx-bootstrap/tabs';
 
 @NgModule({
@@ -50,7 +51,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     AppRoutingModule, 
     HttpClientModule, 
     FormsModule, 
-    SharedModule, PaginationModule.forRoot(), BsDropdownModule.forRoot(), ButtonsModule.forRoot(),
+    SharedModule, PaginationModule.forRoot(), BsDropdownModule.forRoot(), ButtonsModule.forRoot(), TimeagoModule.forRoot()
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}, 
