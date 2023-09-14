@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
@@ -51,6 +51,7 @@ import { TimeagoModule } from "ngx-timeago";
     AppRoutingModule, 
     HttpClientModule, 
     FormsModule, 
+    ReactiveFormsModule,
     SharedModule, PaginationModule.forRoot(), BsDropdownModule.forRoot(), ButtonsModule.forRoot(), TimeagoModule.forRoot()
   ],
   providers: [
